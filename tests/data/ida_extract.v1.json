@@ -1,0 +1,59 @@
+{
+  "schema_version": "v1",
+  "kind": "extract",
+  "generator": "icepick.extract 0.1.0 (idalib)",
+  "provenance": {
+    "ida_version": "9.5.0.250616",
+    "idb_sha256": "8f14e45fceea167a5a36dedd4bea2543c1a1f9d5b0d3bf3f7c9a12a1e5b9f0c3",
+    "auto_analysis": true,
+    "backend": "idalib",
+    "generator": "icepick.extract 0.1.0 (idalib)"
+  },
+  "funcs": [
+    {
+      "ea": "0x140001000",
+      "name": "sub_140001000",
+      "name_source": "ida",
+      "size": 64,
+      "blocks": 3,
+      "flags": ["frame_pointer_omitted"],
+      "callers": ["0x140002000"],
+      "callees": ["0x140002000", "0x140003000", "0x14001a2b0"],
+      "decompiled": "int __fastcall sub_140001000(int a1, int a2)\n{\n  return helper_mix(a1, a2) + sub_140003000(a1);\n}\n",
+      "decompile_status": "ok",
+      "decompile_error": null
+    },
+    {
+      "ea": "0x140002000",
+      "name": "_strlen",
+      "name_source": "flirt",
+      "size": 48,
+      "blocks": 2,
+      "flags": ["library", "flirt", "no_return_false"],
+      "callers": ["0x140001000"],
+      "callees": ["0x14001a2b0"],
+      "decompiled": "size_t __cdecl _strlen(const char *s)\n{\n  const char *p = s;\n  while (*p)\n    ++p;\n  return p - s;\n}\n",
+      "decompile_status": "ok",
+      "decompile_error": null
+    },
+    {
+      "ea": "0x140003000",
+      "name": "sub_140003000",
+      "name_source": "ida",
+      "size": 412,
+      "blocks": 17,
+      "flags": [],
+      "callers": ["0x140001000"],
+      "callees": [],
+      "decompiled": null,
+      "decompile_status": "failed",
+      "decompile_error": "DECOMPILE_FAILED(too_big)"
+    }
+  ],
+  "edges": [
+    {"src": "0x140001000", "dst": "0x140002000", "kind": "call"},
+    {"src": "0x140001000", "dst": "0x140003000", "kind": "call"},
+    {"src": "0x140001000", "dst": "0x14001a2b0", "kind": "call"},
+    {"src": "0x140002000", "dst": "0x14001a2b0", "kind": "call"}
+  ]
+}
